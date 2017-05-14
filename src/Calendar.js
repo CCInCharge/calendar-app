@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
 import BigCalendar from 'react-big-calendar'
@@ -43,14 +44,20 @@ class Dnd extends Component {
 
   render(){
     return (
-      <DragAndDropCalendar
-        selectable
-        events={this.state.events}
-        onEventDrop={this.moveEvent}
-        views={['week', 'day', 'agenda']}
-        defaultView='week'
-        defaultDate={new Date(2015, 3, 12)}
-      />
+      <Grid>
+        <Row>
+          <Col>
+            <DragAndDropCalendar
+            selectable
+            events={this.state.events}
+            onEventDrop={this.moveEvent}
+            views={['week', 'day', 'agenda']}
+            defaultView='week'
+            defaultDate={new Date(2015, 3, 12)}
+            />
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
