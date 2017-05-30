@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Button, Popover, OverlayTrigger } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, HelpBlock, Form } from 'react-bootstrap';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
 import BigCalendar from 'react-big-calendar'
@@ -39,14 +40,38 @@ class Dnd extends Component {
       events: nextEvents
     })
 
-    alert(`${event.title} was dropped onto ${event.start}`);
+    //alert(`${event.title} was dropped onto ${event.start}`);
   }
 
   render(){
+    function FieldGroup({ id, label, help, ...props }) {
+      return (
+        <FormGroup controlId={id}>
+          <ControlLabel>{label}</ControlLabel>
+          <FormControl {...props} />
+          {help && <HelpBlock>{help}</HelpBlock>}
+        </FormGroup>
+      );
+    }
+
+    let popoverRight = (
+    <Popover id="popover-positioned-right" title="New Event">
+      <Form>
+        <FieldGroup id="newEventName" type="text" label="Event" placeholder="Enter event" />
+        <FieldGroup id="newEventTime" type="text" label="Time" placeholder="Enter time" />
+        <Button type="submit">Add New Event</Button>
+      </Form>
+    </Popover>
+    );
     return (
       <Grid>
         <Row>
           <Col>
+            <div className="rbc-toolbar">
+            <OverlayTrigger trigger="click" placement="right" overlay={popoverRight}>
+              <Button bsSize="lg">new event</Button>
+            </OverlayTrigger>
+            </div>
             <DragAndDropCalendar
             selectable
             events={this.state.events}
