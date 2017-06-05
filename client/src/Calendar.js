@@ -8,7 +8,10 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.less';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import events from './events'
+// import Fetch from 'react-fetch';
+
+import eventsBackend from './eventsBackend';
+import events from './events';
 
 import moment from 'moment';
 BigCalendar.setLocalizer(
@@ -20,6 +23,7 @@ const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 class Dnd extends Component {
   constructor (props) {
     super(props)
+    var newEvents = eventsBackend.getEvents();
     this.state = {
       events: events
     }

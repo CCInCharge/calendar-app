@@ -19,25 +19,25 @@ var Event = mongoose.model('Event', eventSchema);
 
 app.set('port', 3001);
 
-app.get('/',function(req,res,next){
+app.get('/api/events',function(req,res,next){
   Event.find({}, (err, docs) => {
-    if (err) throw err;
-    console.log(docs[0].start);
-    console.log(typeof(docs[0].start));
+    if (err) {
+      next(err);
+      return;
+    }
+    res.send(docs);
   });
-  console.log(process.env.MONGODB_USER);
-  res.send("Test");
 });
 
 app.use(function(req,res){
   res.status(404);
-  res.render('404');
+  res.send("404 Error");
 });
 
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500);
-  res.render('500');
+  res.send("500 Error");
 });
 
 app.listen(app.get('port'), function(){
