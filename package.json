@@ -1,26 +1,25 @@
 {
-  "name": "calendar-app",
-  "version": "0.1.0",
-  "private": true,
-  "style": "node_modules/react-big-calendar/css/react-big-calendar.css",
-  "dependencies": {
-    "globalize": "^1.2.3",
-    "localizer": "^0.2.4",
-    "moment": "^2.18.1",
-    "react": "^15.5.4",
-    "react-big-calendar": "^0.14.0",
-    "react-bootstrap": "^0.31.0",
-    "react-dnd": "^2.4.0",
-    "react-dnd-html5-backend": "^2.4.1",
-    "react-dom": "^15.5.4"
-  },
-  "devDependencies": {
-    "react-scripts": "0.9.5"
-  },
+  "name": "calendar-app-backend",
+  "version": "1.0.0",
+  "description": "Calendar app with collaborative functionality, allowing multiple users to modify events in a calendar and see the changes real time.",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCInCharge/calendar-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CCInCharge/calendar-app/issues"
+  },
+  "homepage": "https://github.com/CCInCharge/calendar-app#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.4"
   }
 }

@@ -1,0 +1,28 @@
+{
+  "name": "calendar-app",
+  "version": "0.1.0",
+  "private": true,
+  "style": "node_modules/react-big-calendar/css/react-big-calendar.css",
+  "dependencies": {
+    "globalize": "^1.2.3",
+    "localizer": "^0.2.4",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.28",
+    "mongoose": "^4.10.4",
+    "react": "^15.5.4",
+    "react-big-calendar": "^0.14.0",
+    "react-bootstrap": "^0.31.0",
+    "react-dnd": "^2.4.0",
+    "react-dnd-html5-backend": "^2.4.1",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
