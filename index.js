@@ -25,7 +25,7 @@ app.get('/api/events',function(req,res,next){
       next(err);
       return;
     }
-    res.send(docs);
+    res.send({"events": docs});
   });
 });
 

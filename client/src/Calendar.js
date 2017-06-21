@@ -11,7 +11,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 // import Fetch from 'react-fetch';
 
 import eventsBackend from './eventsBackend';
-import events from './events';
+// import events from './events';
 
 import moment from 'moment';
 BigCalendar.setLocalizer(
@@ -23,13 +23,37 @@ const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 class Dnd extends Component {
   constructor (props) {
     super(props)
-    var newEvents = eventsBackend.getEvents();
+    // var newEvents = eventsBackend.getEvents();
+    /*
     this.state = {
       events: events
     }
+    */
+    this.state = {events: []};
 
     this.moveEvent = this.moveEvent.bind(this)
   }
+
+  componentDidMount() {
+    fetch('api/events', {
+      accept: 'application/json',
+      method: 'get'
+    })
+    .then(response => {
+      response.json().then(data => {
+        console.log(typeof(data.events[0].start));
+        // FIXME: Need to convert incoming start and end attributes to Date
+        // objects
+        data.events.forEach((thisEvent, ind, eventsArr) => {
+          eventsArr[ind].start = new Date(thisEvent.start);
+          eventsArr[ind].end = new Date(thisEvent.end);
+        });
+        this.setState(data);
+      })
+    });
+  }
+
+
 
   moveEvent({ event, start, end }) {
     const { events } = this.state;

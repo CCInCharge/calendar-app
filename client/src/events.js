@@ -1,4 +1,5 @@
 export default [
+  /*
   {
     'title': 'All Day Event',
     'allDay': true,
@@ -66,5 +67,12 @@ export default [
     'title': 'Birthday Party',
     'start':new Date(2015, 3, 13, 7, 0, 0),
     'end': new Date(2015, 3, 13, 10, 30, 0)
+  },
+  {
+    'title': 'Happy Hour',
+    'start':new Date(2015, 3, 12, 17, 0, 0, 0),
+    'end': new Date(2015, 3, 12, 17, 30, 0, 0),
+    desc: 'Most important meal of the day'
   }
+  */
 ]
